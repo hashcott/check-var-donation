@@ -9,6 +9,7 @@ import {
     List,
     ListItem,
     ListIcon,
+    Text,
 } from '@chakra-ui/react';
 import { CheckCircleIcon } from '@chakra-ui/icons';
 
@@ -32,10 +33,25 @@ const App = () => (
                 query="LIÊM"
                 styles={{ px: '2', py: '1', rounded: 'full', bg: 'red.100' }}
             >
-                Tìm ra "LIÊM"
+                Truy tìm anh "LIÊM"
             </Highlight>
         </Heading>
-
+        <Text paddingTop={5} fontSize="md">
+            Made by:{' '}
+            <a href="https://github.com/hashcott/check-var-donation">
+                <Highlight
+                    query="Nguyen Hanh"
+                    styles={{
+                        px: '2',
+                        py: '1',
+                        rounded: 'full',
+                        bg: 'pink.100',
+                    }}
+                >
+                    Nguyen Hanh with ❤
+                </Highlight>
+            </a>
+        </Text>
         <List paddingBottom={10} spacing={3}>
             <Heading paddingTop={10} as="h5" size="sm">
                 Dữ liệu được cập nhật liên tục từ:
