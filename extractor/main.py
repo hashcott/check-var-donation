@@ -17,9 +17,6 @@ for j in range(tables.n):
     tables[j].df[0] = tables[j].df[1].apply(lambda x: pd.Series(str(x).split(" ")[0]))
     tables[j].df[1] = tables[j].df[1].apply(lambda x: pd.Series(str(x).split(" ", 1)[1]))
 
-    # 300.000 to 300000
-    tables[j].df[3] = tables[j].df[3].apply(lambda x: x.replace(".", "").format(int))
-
     # append dataframe to new_pd
     new_pd = pd.concat([new_pd, tables[j].df])
 
