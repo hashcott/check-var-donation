@@ -16,7 +16,7 @@ import 'instantsearch.css/themes/satellite.css';
 import './index.css';
 const { searchClient } = instantMeiliSearch(
     'https://meilisearch-on-koyeb-happytechhub.koyeb.app',
-    'a63d8ad54deda9ba045d5fac8296991103b918d03865e6fe40c0b7866ba80ea0',
+    '7c41c8093cc6af37667a5f6f0a036f772e5a0dbc6ab2eab6638a132d8c7542e4',
     {
         attributesToHighlight: ['*'],
         highlightPreTag: '<b>',
@@ -26,7 +26,7 @@ const { searchClient } = instantMeiliSearch(
 
 const App = () => (
     <Container maxW="1080px" padding="20px">
-        <Heading lineHeight="tall">CHECK VAR ỦNG HỘ</Heading>
+        <Heading lineHeight="tall"> 👮 CHECK VAR ỦNG HỘ</Heading>
         <Heading lineHeight="tall">
             <Highlight
                 query="LIÊM"
@@ -55,7 +55,7 @@ const App = () => (
                 </a>
             </ListItem>
         </List>
-        <InstantSearch indexName="vietinbank" searchClient={searchClient}>
+        <InstantSearch indexName="data" searchClient={searchClient}>
             <SearchBox />
             <CustomInfiniteHits />
         </InstantSearch>

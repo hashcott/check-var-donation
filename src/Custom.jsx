@@ -15,14 +15,6 @@ import {
 } from '@chakra-ui/react';
 import { i } from 'framer-motion/client';
 
-// parse to currency format vnđ
-function formatCurrency(value) {
-    return value.toLocaleString('vi', {
-        style: 'currency',
-        currency: 'VND',
-    });
-}
-
 export function CustomInfiniteHits(props) {
     const { items, showMore, isLastPage } = useInfiniteHits(props);
     if (!items) {
@@ -49,30 +41,33 @@ export function CustomInfiniteHits(props) {
                             <Th>STT</Th>
                             <Th>Ngày giờ</Th>
                             <Th>Nội dung</Th>
-                            <Th isNumeric>Số tiền</Th>
+                            <Th>Số tiền</Th>
                             <Th>Tên đối ứng</Th>
                         </Tr>
                     </Thead>
                     <Tbody widthTbody="100%">
-                        {items.map((hit) => (
-                            <Tr key={hit.id}>
-                                <Td>{hit.id}</Td>
-                                <Td>{hit.date}</Td>
-                                <Td>
-                                    <Highlight
-                                        attribute="description"
-                                        hit={hit}
-                                    />
-                                </Td>
-                                <Td isNumeric>
-                                    <Highlight attribute="credit" hit={hit} /> đ
-                                </Td>
+                        {items
+                            .filter((a) => a.description)
+                            .map((hit) => (
+                                <Tr key={hit.id}>
+                                    <Td>{hit.id}</Td>
+                                    <Td>{hit.date}</Td>
+                                    <Td>
+                                        <Highlight
+                                            attribute="description"
+                                            hit={hit}
+                                        />
+                                    </Td>
+                                    <Td>{hit.credit}đ</Td>
 
-                                <Td>
-                                    <Highlight attribute="author" hit={hit} />
-                                </Td>
-                            </Tr>
-                        ))}
+                                    <Td>
+                                        <Highlight
+                                            attribute="author"
+                                            hit={hit}
+                                        />
+                                    </Td>
+                                </Tr>
+                            ))}
                     </Tbody>
                 </Table>
             </TableContainer>
